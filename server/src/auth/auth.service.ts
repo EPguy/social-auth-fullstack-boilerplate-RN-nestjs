@@ -90,12 +90,17 @@ export class AuthService {
     return socalAuth.user._id.toString();
   }
 
-  async logout(userId: string, res): Promise<User> {
+  async logout(userId: string, res): Promise<RefreshToken> {
     res.clearCookie('refresh_token', {
       path: '/auth',
       httpOnly: true,
     });
-    return this.userService.update(userId, { refreshToken: null });
+    const user = await this.userService.findById({ _id: userId });
+    return this.refreshTokenModel.findByIdAndUpdate(
+      user.refreshToken._id,
+      { refreshToken: null },
+      { new: true },
+    );
   }
 
   async refreshTokens(userId: string, res): Promise<{ accessToken: string }> {

@@ -13,6 +13,7 @@ import { RefreshTokenGuard } from '../common/guards/refreshToken.guard';
 import { IGetUserAuthInfoRequest } from '../common/interface/IGetUserAuthInfoRequest';
 import { AccessTokenGuard } from '../common/guards/accessToken.guard';
 import { User } from '../user/schemas/user.schema';
+import { RefreshToken } from './schemas/refresh-token.schema';
 
 @Controller('auth')
 export class AuthController {
@@ -41,7 +42,7 @@ export class AuthController {
   logout(
     @Req() req: IGetUserAuthInfoRequest,
     @Res({ passthrough: true }) res,
-  ): Promise<User> {
+  ): Promise<RefreshToken> {
     const userId = req.user._id;
     return this.authService.logout(userId.toString(), res);
   }
