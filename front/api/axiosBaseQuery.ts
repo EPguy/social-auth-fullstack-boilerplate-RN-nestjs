@@ -46,7 +46,6 @@ export const AxiosBaseQuery: BaseQueryFn<
           extraOptions,
         );
 
-        console.log(refreshResult);
         if (refreshResult.data) {
           api.dispatch(
             setAccessToken({
@@ -56,10 +55,6 @@ export const AxiosBaseQuery: BaseQueryFn<
           );
           result = await baseQuery(args, api, extraOptions);
         } else {
-          Toast.show({
-            type: 'error',
-            text1: '토큰이 만료되었습니다. 다시 로그인해주세요.',
-          });
           api.dispatch(setRefreshTokenExpired(true));
         }
       } finally {
