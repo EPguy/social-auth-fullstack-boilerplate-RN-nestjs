@@ -58,7 +58,7 @@ export class AuthController {
   logout(
     @Req() req: IGetUserAuthInfoRequest,
     @Res({ passthrough: true }) res,
-  ): Promise<RefreshToken> {
+  ): Promise<boolean> {
     const userId = req.user._id;
     return this.authService.logout(userId.toString(), res);
   }

@@ -15,7 +15,7 @@ export class UserController {
   }
 
   @UseGuards(AccessTokenGuard)
-  @Put('nickname')
+  @Put('/nickname')
   async updateNickname(
     @Req() req: IGetUserAuthInfoRequest,
     @Body() params: { nickname: string },

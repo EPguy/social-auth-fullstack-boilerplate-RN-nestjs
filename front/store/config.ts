@@ -2,10 +2,12 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import authSlice from './slices/authSlice';
 import { authApi } from '../api/auth/api';
+import { userApi } from '../api/user/api';
 
 const reducers = {
   [authSlice.name]: authSlice.reducer,
   [authApi.reducerPath]: authApi.reducer,
+  [userApi.reducerPath]: userApi.reducer,
 };
 
 const rootReducer = combineReducers<typeof reducers>(reducers);
@@ -17,7 +19,7 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware({
       serializableCheck: true,
-    }).concat([authApi.middleware]);
+    }).concat([authApi.middleware, userApi.middleware]);
   },
   preloadedState: initialState,
   enhancers: (defaultEnhancers) => [...defaultEnhancers],

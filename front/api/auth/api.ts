@@ -1,13 +1,24 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
-import { axiosBaseQuery } from '../axiosBaseQuery';
+import { AxiosBaseQuery } from '../axiosBaseQuery';
 import { SignInResponse } from '../../models/auth/SignInResponse';
 import { SignInLocalRequest } from '../../models/auth/SignInLocalRequest';
 import { SignInSocialRequest } from '../../models/auth/SignInSocialRequest';
+import { SignUpLocalRequest } from '../../models/auth/SignUpLocalRequest';
+import { SignUpResponse } from '../../models/auth/SignUpResponse';
 
 export const authApi = createApi({
   reducerPath: 'authApi',
-  baseQuery: axiosBaseQuery,
+  baseQuery: AxiosBaseQuery,
   endpoints: (builder) => ({
+    localSignUp: builder.mutation<SignUpResponse, SignUpLocalRequest>({
+      query: (data) => {
+        return {
+          url: 'auth/signup',
+          method: 'POST',
+          body: data,
+        };
+      },
+    }),
     localSignIn: builder.mutation<SignInResponse, SignInLocalRequest>({
       query: (data) => {
         return {
@@ -26,6 +37,19 @@ export const authApi = createApi({
         };
       },
     }),
+    logout: builder.mutation<boolean, void>({
+      query: () => {
+        return {
+          url: 'auth/logout',
+          method: 'GET',
+        };
+      },
+    }),
   }),
 });
-export const { useLocalSignInMutation, useSocialSignInMutation } = authApi;
+export const {
+  useLocalSignUpMutation,
+  useLocalSignInMutation,
+  useSocialSignInMutation,
+  useLogoutMutation,
+} = authApi;

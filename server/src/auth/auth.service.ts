@@ -131,17 +131,18 @@ export class AuthService {
     };
   }
 
-  async logout(userId: string, res): Promise<RefreshToken> {
+  async logout(userId: string, res): Promise<boolean> {
     res.clearCookie('refresh_token', {
       path: '/auth',
       httpOnly: true,
     });
     const user = await this.userService.findById({ _id: userId });
-    return this.refreshTokenModel.findByIdAndUpdate(
+    await this.refreshTokenModel.findByIdAndUpdate(
       user.refreshToken._id,
       { refreshToken: null },
       { new: true },
     );
+    return true;
   }
 
   async refreshTokens(userId: string, res): Promise<{ accessToken: string }> {

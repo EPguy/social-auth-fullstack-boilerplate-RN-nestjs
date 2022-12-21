@@ -1,15 +1,15 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native';
-import LoginScreen from './screens/LoginScreen';
 import { Provider } from 'react-redux';
 import store from './store/config';
+import Navigation from './navigation';
+import Toast from 'react-native-toast-message';
 
 const App = () => {
+  const toastConfig = {};
   return (
     <Provider store={store}>
-      <SafeAreaView>
-        <LoginScreen />
-      </SafeAreaView>
+      <Navigation />
+      <Toast config={toastConfig} />
     </Provider>
   );
 };
