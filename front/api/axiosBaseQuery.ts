@@ -7,7 +7,10 @@ import {
 import { Properties } from '../Properties';
 import { Mutex } from 'async-mutex';
 import Toast from 'react-native-toast-message';
-import { setAccessToken, setRefreshTokenExpired } from '../store/slices/authSlice';
+import {
+  setAccessToken,
+  setRefreshTokenExpired,
+} from '../store/slices/authSlice';
 import { RefershTokenResponse } from '../models/auth/RefershTokenResponse';
 
 const baseUrl = Properties.API_URL;
@@ -53,6 +56,10 @@ export const AxiosBaseQuery: BaseQueryFn<
           );
           result = await baseQuery(args, api, extraOptions);
         } else {
+          Toast.show({
+            type: 'error',
+            text1: '토큰이 만료되었습니다. 다시 로그인해주세요.',
+          });
           api.dispatch(setRefreshTokenExpired(true));
         }
       } finally {

@@ -1,6 +1,7 @@
 import {
   useLocalSignInMutation,
-  useLocalSignUpMutation, useLogoutMutation,
+  useLocalSignUpMutation,
+  useLogoutMutation,
   useSocialSignInMutation,
 } from '../api/auth/api';
 import { useCallback } from 'react';

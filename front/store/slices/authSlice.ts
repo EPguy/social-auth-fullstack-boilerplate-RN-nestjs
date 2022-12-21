@@ -16,6 +16,7 @@ const alertSlice = createSlice({
   reducers: {
     setAccessToken: (state, action: PayloadAction<AuthState>) => {
       state.accessToken = action.payload.accessToken;
+      state.refreshTokenExpired = false;
     },
     setRefreshTokenExpired: (state, action: PayloadAction<boolean>) => {
       state.refreshTokenExpired = action.payload;
