@@ -7,7 +7,7 @@ import useUser from '../hooks/useUser';
 const SigninScreen = ({ navigation }: any) => {
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
-  const { userInfo, getUserInfo } = useUser();
+  const { getUserInfo } = useUser();
   const { localSignIn, socialSignIn } = useAuth();
 
   const loginWithLocal = async () => {
@@ -30,9 +30,8 @@ const SigninScreen = ({ navigation }: any) => {
   };
 
   const moveToLoggedScreen = async () => {
-    await getUserInfo();
-    console.log(userInfo);
-    if (userInfo?.nickname) {
+    const user = await getUserInfo().unwrap();
+    if (user.nickname) {
       navigation.reset({
         routes: [{ name: 'UserInfoScreen' }],
       });

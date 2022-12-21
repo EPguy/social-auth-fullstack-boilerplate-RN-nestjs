@@ -7,7 +7,7 @@ import {
 import { Properties } from '../Properties';
 import { Mutex } from 'async-mutex';
 import Toast from 'react-native-toast-message';
-import { setAccessToken } from '../store/slices/authSlice';
+import { setAccessToken, setRefreshTokenExpired } from '../store/slices/authSlice';
 import { RefershTokenResponse } from '../models/auth/RefershTokenResponse';
 
 const baseUrl = Properties.API_URL;
@@ -19,7 +19,6 @@ const baseQuery = fetchBaseQuery({
   credentials: 'include',
   prepareHeaders: (headers, { getState }) => {
     const token = (getState() as any).auth.accessToken;
-    console.log(token);
     if (token) {
       headers.set('Authorization', `Bearer ${token}`);
     }
@@ -34,7 +33,6 @@ export const AxiosBaseQuery: BaseQueryFn<
 > = async (args, api, extraOptions) => {
   await mutex.waitForUnlock();
   let result = await baseQuery(args, api, extraOptions);
-  console.log(result);
   if (result.error?.status === 401) {
     if (!mutex.isLocked()) {
       const release = await mutex.acquire();
@@ -45,6 +43,7 @@ export const AxiosBaseQuery: BaseQueryFn<
           extraOptions,
         );
 
+        console.log(refreshResult);
         if (refreshResult.data) {
           api.dispatch(
             setAccessToken({
@@ -54,7 +53,7 @@ export const AxiosBaseQuery: BaseQueryFn<
           );
           result = await baseQuery(args, api, extraOptions);
         } else {
-          // refresh token 만료되었을 경우
+          api.dispatch(setRefreshTokenExpired(true));
         }
       } finally {
         release();
