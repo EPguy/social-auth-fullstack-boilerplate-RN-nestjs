@@ -1,10 +1,8 @@
 import { Button, TextInput, View } from 'react-native';
 import { KakaoOAuthToken, login } from '@react-native-seoul/kakao-login';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import useAuth from '../hooks/useAuth';
 import useUser from '../hooks/useUser';
-import CookieManager from '@react-native-cookies/cookies';
-import { Properties } from '../Properties';
 
 const SigninScreen = ({ navigation }: any) => {
   const [id, setId] = useState('');

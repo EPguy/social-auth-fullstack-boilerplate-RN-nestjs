@@ -48,10 +48,9 @@ export const AxiosBaseQuery: BaseQueryFn<
 
         if (refreshResult.data) {
           api.dispatch(
-            setAccessToken({
-              accessToken: (refreshResult.data as RefershTokenResponse)
-                .accessToken,
-            }),
+            setAccessToken(
+              (refreshResult.data as RefershTokenResponse).accessToken,
+            ),
           );
           result = await baseQuery(args, api, extraOptions);
         } else {

@@ -8,7 +8,7 @@ import { useCallback } from 'react';
 import { SignInLocalRequest } from '../models/auth/SignInLocalRequest';
 import { SignInSocialRequest } from '../models/auth/SignInSocialRequest';
 import { useAppDispatch } from '../store/config';
-import { setAccessToken } from '../store/slices/authSlice';
+import { setAccessToken, setLoginType } from '../store/slices/authSlice';
 import { SignUpLocalRequest } from '../models/auth/SignUpLocalRequest';
 import Toast from 'react-native-toast-message';
 
@@ -26,7 +26,7 @@ export default function useAuth() {
           signUpLocalRequest,
         ).unwrap();
         if (accessToken) {
-          dispatch(setAccessToken(accessToken));
+          dispatch(setAccessToken(accessToken.accessToken));
           return true;
         }
         return false;
@@ -42,7 +42,8 @@ export default function useAuth() {
           signInLocalRequest,
         ).unwrap();
         if (accessToken) {
-          dispatch(setAccessToken(accessToken));
+          dispatch(setAccessToken(accessToken.accessToken));
+          dispatch(setLoginType('local'));
           return true;
         }
         return false;
@@ -57,7 +58,8 @@ export default function useAuth() {
         signinSocialRequestDto,
       ).unwrap();
       if (accessToken) {
-        dispatch(setAccessToken(accessToken));
+        dispatch(setAccessToken(accessToken.accessToken));
+        dispatch(setLoginType(signinSocialRequestDto.platform));
         return true;
       }
       return false;
@@ -65,7 +67,7 @@ export default function useAuth() {
     [dispatch, socialSignInMutation],
   );
 
-  const logout = useCallback(async () => {
+  const logoutServer = useCallback(async () => {
     const success = await logoutMutation().unwrap();
     if (success) return true;
     return false;
@@ -82,5 +84,5 @@ export default function useAuth() {
     return true;
   };
 
-  return { localSignUp, localSignIn, socialSignIn, logout };
+  return { localSignUp, localSignIn, socialSignIn, logoutServer };
 }
