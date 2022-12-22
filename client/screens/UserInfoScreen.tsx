@@ -1,5 +1,5 @@
 import { Button, Text, View } from 'react-native';
-import { logout } from '@react-native-seoul/kakao-login';
+import * as kakao from '@react-native-seoul/kakao-login';
 import React from 'react';
 import useUser from '../hooks/useUser';
 import useAuth from '../hooks/useAuth';
@@ -8,16 +8,16 @@ import { AuthTypeEnum } from '../enum/AuthTypeEnum';
 
 const UserInfoScreen = ({ navigation }: any) => {
   const { loginType } = useAppSelector((state) => state.auth);
-  const { logoutServer } = useAuth();
+  const { logout } = useAuth();
   const { userInfo, getUserInfo } = useUser();
   const doLogout = async () => {
     switch (loginType) {
       case AuthTypeEnum.KAKAO:
-        await logout();
+        await kakao.logout();
         break;
     }
 
-    const success = await logoutServer();
+    const success = await logout();
     if (success) {
       navigation.navigate('SigninScreen');
     }

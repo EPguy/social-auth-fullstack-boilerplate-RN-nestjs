@@ -68,7 +68,7 @@ export default function useAuth() {
     [dispatch, socialSignInMutation],
   );
 
-  const logoutServer = useCallback(async () => {
+  const logout = useCallback(async () => {
     const success = await logoutMutation().unwrap();
     if (success) return true;
     return false;
@@ -85,5 +85,5 @@ export default function useAuth() {
     return true;
   };
 
-  return { localSignUp, localSignIn, socialSignIn, logoutServer };
+  return { localSignUp, localSignIn, socialSignIn, logout };
 }
