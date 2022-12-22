@@ -107,7 +107,6 @@ export class TodoService {
   ): Promise<boolean> {
     return (
       (await this.todoModel.count({
-        isDeleted: false,
         userId,
         _id: { $lt: endCursor },
       })) > 0
