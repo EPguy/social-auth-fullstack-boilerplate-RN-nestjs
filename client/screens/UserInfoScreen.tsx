@@ -4,6 +4,7 @@ import React from 'react';
 import useUser from '../hooks/useUser';
 import useAuth from '../hooks/useAuth';
 import { useAppSelector } from '../store/config';
+import { AuthTypeEnum } from '../enum/AuthTypeEnum';
 
 const UserInfoScreen = ({ navigation }: any) => {
   const { loginType } = useAppSelector((state) => state.auth);
@@ -11,7 +12,7 @@ const UserInfoScreen = ({ navigation }: any) => {
   const { userInfo, getUserInfo } = useUser();
   const doLogout = async () => {
     switch (loginType) {
-      case 'kakao':
+      case AuthTypeEnum.KAKAO:
         await logout();
         break;
     }

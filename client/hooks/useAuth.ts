@@ -11,6 +11,7 @@ import { useAppDispatch } from '../store/config';
 import { setAccessToken, setLoginType } from '../store/slices/authSlice';
 import { SignUpLocalRequest } from '../models/auth/SignUpLocalRequest';
 import Toast from 'react-native-toast-message';
+import { AuthTypeEnum } from '../enum/AuthTypeEnum';
 
 export default function useAuth() {
   const dispatch = useAppDispatch();
@@ -43,7 +44,7 @@ export default function useAuth() {
         ).unwrap();
         if (accessToken) {
           dispatch(setAccessToken(accessToken.accessToken));
-          dispatch(setLoginType('local'));
+          dispatch(setLoginType(AuthTypeEnum.LOCAL));
           return true;
         }
         return false;
