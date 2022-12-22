@@ -109,6 +109,12 @@ export class AuthService {
         );
         break;
       }
+      case 'naver': {
+        userId = await this.getUserByNaverAccessToken(
+          loginSocialRequest.accessToken,
+        );
+        break;
+      }
       default: {
         throw new HttpException(
           '잘못된 소셜 로그인 플랫폼입니다.',
@@ -170,8 +176,31 @@ export class AuthService {
         HttpStatus.INTERNAL_SERVER_ERROR,
       );
     }
+    return this.findOrCreateSocialAuth(kakaoInfo.data.id, 'kakao');
+  }
+
+  protected async getUserByNaverAccessToken(
+    accessToken: string,
+  ): Promise<string> {
+    const naverInfo = await axios.get('https://openapi.naver.com/v1/nid/me', {
+      headers: { Authorization: `Bearer ${accessToken}` },
+    });
+
+    if (!naverInfo) {
+      throw new HttpException(
+        '네이버 간편 로그인에 실패하였습니다.',
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
+    return this.findOrCreateSocialAuth(naverInfo.data.response.id, 'naver');
+  }
+
+  protected async findOrCreateSocialAuth(
+    snsServiceId: string,
+    platform: string,
+  ): Promise<string> {
     const socalAuth = await this.socialAuthModel.findOne({
-      snsServiceId: kakaoInfo.data.id,
+      snsServiceId: snsServiceId,
     });
     if (!socalAuth) {
       const refreshToken = await this.refreshTokenModel.create({});
@@ -180,8 +209,8 @@ export class AuthService {
       });
       await this.socialAuthModel.create({
         user: user._id,
-        snsServiceId: kakaoInfo.data.id,
-        platform: 'kakao',
+        snsServiceId: snsServiceId,
+        platform: platform,
       });
       return user._id.toString();
     }

@@ -3,6 +3,7 @@ package com.front;
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
+import com.dooboolab.naverlogin.RNNaverLoginModule;
 import android.os.Bundle;
 
 public class MainActivity extends ReactActivity {
@@ -29,6 +30,7 @@ public class MainActivity extends ReactActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(null);
+    RNNaverLoginModule.initialize(this);
   }
 
   public static class MainActivityDelegate extends ReactActivityDelegate {
