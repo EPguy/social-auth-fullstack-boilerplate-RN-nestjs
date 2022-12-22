@@ -4,7 +4,7 @@ import {
   Delete,
   Get,
   Post,
-  Put,
+  Put, Query,
   Req,
   UseGuards,
 } from '@nestjs/common';
@@ -12,7 +12,7 @@ import { TodoService } from './todo.service';
 import { AccessTokenGuard } from '../common/guards/accessToken.guard';
 import { IGetUserAuthInfoRequest } from '../common/interface/IGetUserAuthInfoRequest';
 import { TodoListResponseDto } from './dto/todo-list-response.dto';
-import { TodoPaginationDto } from './dto/todo-pagination.dto';
+import { TodoGetRequestDto } from './dto/todo-get-request.dto';
 import { TodoInsertRequestDto } from './dto/todo-insert-request.dto';
 import { Todo } from './schemas/todo.schema';
 import { TodoDeleteRequestDto } from './dto/todo-delete-request.dto';
@@ -26,7 +26,7 @@ export class TodoController {
   @Get()
   async getTodoList(
     @Req() req: IGetUserAuthInfoRequest,
-    @Body() todoPaginationDto: TodoPaginationDto,
+    @Query() todoPaginationDto: TodoGetRequestDto,
   ): Promise<TodoListResponseDto> {
     return this.todoService.getTodoList(
       todoPaginationDto,

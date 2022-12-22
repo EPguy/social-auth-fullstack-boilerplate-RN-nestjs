@@ -1,4 +1,4 @@
-export class TodoPaginationDto {
+export class TodoGetRequestDto {
   numTodos: number;
   cursor: string;
 }

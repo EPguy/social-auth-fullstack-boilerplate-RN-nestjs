@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 import { Todo, TodoDocument } from './schemas/todo.schema';
-import { TodoPaginationDto } from './dto/todo-pagination.dto';
+import { TodoGetRequestDto } from './dto/todo-get-request.dto';
 import { TodoListResponseDto } from './dto/todo-list-response.dto';
 import { TodoPageInfoDto } from './dto/todo-page-info.dto';
 import { TodoInsertRequestDto } from './dto/todo-insert-request.dto';
@@ -17,7 +17,7 @@ export class TodoService {
   ) {}
 
   async getTodoList(
-    todoPaginationDto: TodoPaginationDto,
+    todoPaginationDto: TodoGetRequestDto,
     userId: string,
   ): Promise<TodoListResponseDto> {
     const todos = await this.findByPaging(todoPaginationDto, userId);
@@ -81,9 +81,10 @@ export class TodoService {
   }
 
   protected async findByPaging(
-    todoPagination: TodoPaginationDto,
+    todoPagination: TodoGetRequestDto,
     userId: string,
   ): Promise<Todo[]> {
+    console.log(userId);
     return this.todoModel
       .find(
         todoPagination.cursor
