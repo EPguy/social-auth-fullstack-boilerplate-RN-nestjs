@@ -7,10 +7,11 @@ import {
 import { useState } from 'react';
 import { TodoInsertRequest } from '../models/todo/TodoInsertRequest';
 import { TodoDeleteRequest } from '../models/todo/TodoDeleteRequest';
+import Toast from 'react-native-toast-message';
 
 export default function useTodo() {
   const [endCursor, setEndCursor] = useState<string | null>(null);
-  const { data } = useGetTodoListQuery({
+  const { data, refetch: refetchTodoList } = useGetTodoListQuery({
     numTodos: 5,
     cursor: endCursor,
   });
@@ -19,10 +20,17 @@ export default function useTodo() {
   const [updateTodoMutation] = useUpdateTodoMutation();
 
   const getTodoList = (_endCursor: string | null) => {
-    setEndCursor(_endCursor);
+    if (endCursor === endCursor) refetchTodoList();
+    else setEndCursor(_endCursor);
   };
 
   const insertTodo = (todoInsertRequest: TodoInsertRequest) => {
+    if (todoInsertRequest.title.trim() === '') {
+      Toast.show({
+        type: 'error',
+        text1: 'Todo 내용을 입력해주세요.',
+      });
+    }
     insertTodoMutation(todoInsertRequest);
   };
 
