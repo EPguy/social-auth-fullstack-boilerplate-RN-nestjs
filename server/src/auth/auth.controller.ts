@@ -12,7 +12,6 @@ import { AuthService } from './auth.service';
 import { RefreshTokenGuard } from '../common/guards/refreshToken.guard';
 import { IGetUserAuthInfoRequest } from '../common/interface/IGetUserAuthInfoRequest';
 import { AccessTokenGuard } from '../common/guards/accessToken.guard';
-import { RefreshToken } from './schemas/refresh-token.schema';
 import { SignupLocalRequestDto } from './dto/signup-local-request.dto';
 import { SigninLocalRequestDto } from './dto/signin-local-request.dto';
 
