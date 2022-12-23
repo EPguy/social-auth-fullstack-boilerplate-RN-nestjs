@@ -1,4 +1,4 @@
-<p align="center"><img src="https://user-images.githubusercontent.com/36794920/209254022-f8958504-89df-42b0-9ad9-c485dd104b28.png" width="466px"/></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/36794920/209254022-f8958504-89df-42b0-9ad9-c485dd104b28.png" width="600px"/></p>
 
 ![Contributors][contributors-shield]
 ![Forks][forks-shield]
@@ -25,6 +25,12 @@
 ## 로그인 프로세스
 
 ## DB 구조
+
+## API KEY 설정
+소셜로그인에 대한 API KEY 설정은 세팅 되어있지만\
+여러분들의 API KEY로 변경하고 싶다면 아래 레포지토리에 있는 설명을 참고해주세요.  
+참고로 네이버 로그인 API KEY에 대한 설정은 `/client/Properties.js`에서 관리하고 있습니다.\
+[react-native-kakao-login](https://github.com/react-native-seoul/react-native-kakao-login)<br/>[react-native-naver-login](https://github.com/react-native-seoul/react-native-naver-login)
 
 ## 로드맵
 - [ ] 화면 디자인
