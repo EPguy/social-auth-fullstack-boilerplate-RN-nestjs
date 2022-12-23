@@ -30,13 +30,19 @@
 소셜로그인에 대한 API KEY 설정은 세팅 되어있지만\
 여러분들의 API KEY로 변경하고 싶다면 아래 레포지토리에 있는 설명을 참고해주세요.  
 참고로 네이버 로그인 API KEY에 대한 설정은 `/client/Properties.js`에서 관리하고 있습니다.\
-[react-native-kakao-login](https://github.com/react-native-seoul/react-native-kakao-login)<br/>[react-native-naver-login](https://github.com/react-native-seoul/react-native-naver-login)
+[카카오 로그인 API 설정](https://github.com/react-native-seoul/react-native-kakao-login#post-installation)<br/>
+[네이버 로그인 API 설정](https://github.com/react-native-seoul/react-native-naver-login#installation)
 
 ## 로드맵
 - [ ] 화면 디자인
 - [ ] `Tistory`에 프로젝트에 대한 아티클 작성
 - [ ] API Swagger 사용하여 API 문서화
 
+## 프로젝트 기여
+### 오류, 건의
+오류나 건의사항이 있다면 [이슈트래커](https://github.com/EPguy/social-login-fullstack-boilerplate/issues)에 등록해주세요.
+### 풀 리퀘스트
+코드 수정이나 추가는 풀 리퀘스트(PR)를 보내주세요.
 
 [contributors-shield]: https://img.shields.io/github/contributors/EPguy/social-login-fullstack-boilerplate.svg?style=for-the-badge
 [forks-shield]: https://img.shields.io/github/forks/EPguy/social-login-fullstack-boilerplate.svg?style=for-the-badge
