@@ -32,6 +32,27 @@
 ## DB 구조
 <img src="https://user-images.githubusercontent.com/36794920/209276600-edcb8269-6308-4afb-8605-379473ac0510.png"/>
 
+## 실행방법
+### Client
+client 폴더로 경로 이동 합니다.\
+`cd client`
+
+아래 명령어로 패키지를 설치해주세요.\
+`npm install`
+
+Android는 아래 명령어로 실행합니다.\
+`npm run android`
+
+IOS는 아래 명령어로 실행합니다.\
+`npm run ios`
+
+### Server
+server 폴더로 경로 이동 합니다.\
+`cd server`
+
+아래 명령어로 서버를 실행합니다.\
+`npm run start:dev`
+
 ## API KEY 설정
 소셜 로그인 API KEY는 이미 프로젝트에 설정되어있지만\
 여러분들의 API KEY로 변경하고 싶다면 아래 레포지토리에 있는 설명을 참고해주세요.  
