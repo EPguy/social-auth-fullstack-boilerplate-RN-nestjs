@@ -28,8 +28,9 @@ export default function useTodo() {
     if (todoInsertRequest.title.trim() === '') {
       Toast.show({
         type: 'error',
-        text1: 'Todo 내용을 입력해주세요.',
+        text1: 'Todo 제목을 입력해주세요.',
       });
+      return;
     }
     insertTodoMutation(todoInsertRequest);
   };

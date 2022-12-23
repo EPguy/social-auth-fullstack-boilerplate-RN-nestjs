@@ -43,7 +43,6 @@ export default function useAuth() {
           signInLocalRequest,
         ).unwrap();
         if (accessToken) {
-          console.log('로그인');
           dispatch(setAccessToken(accessToken.accessToken));
           dispatch(setLoginType(AuthTypeEnum.LOCAL));
           return true;
@@ -60,7 +59,6 @@ export default function useAuth() {
         signinSocialRequestDto,
       ).unwrap();
       if (accessToken) {
-        console.log('로그인');
         dispatch(setAccessToken(accessToken.accessToken));
         dispatch(setLoginType(signinSocialRequestDto.platform));
         return true;
