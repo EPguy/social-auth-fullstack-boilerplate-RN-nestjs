@@ -17,7 +17,11 @@ export const todoApi = createApi({
         return {
           url: 'todo',
           method: 'GET',
-          params: data,
+          params: data.cursor
+            ? data
+            : {
+                numTodos: data.numTodos,
+              },
         };
       },
       providesTags: (result) =>

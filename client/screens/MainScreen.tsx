@@ -7,12 +7,12 @@ import { useAppSelector } from '../store/config';
 import { AuthTypeEnum } from '../enum/AuthTypeEnum';
 import useTodo from '../hooks/useTodo';
 
-const UserInfoScreen = ({ navigation }: any) => {
+const MainScreen = ({ navigation }: any) => {
   const [title, setTitle] = useState('');
   const { loginType } = useAppSelector((state) => state.auth);
   const { logout } = useAuth();
   const { userInfo, getUserInfo } = useUser();
-  const { data, getTodoList, insertTodo } = useTodo();
+  const { data, getTodoList, insertTodo, deleteTodo, completeTodo } = useTodo();
 
   useEffect(() => {
     getTodoList(null);
@@ -42,15 +42,24 @@ const UserInfoScreen = ({ navigation }: any) => {
       <Button title="투두 저장" onPress={() => insertTodo({ title })} />
       <Button title="유저 정보 가져오기" onPress={() => getUserInfo()} />
       <Button title="로그아웃" onPress={() => doLogout()} />
-      {data?.todos.map((todo) => {
+      {data?.todos.map((todo, index) => {
         return (
-          <>
+          <View key={index}>
             <Text>{todo.title}</Text>
-          </>
+            <Text>{todo.isCompleted ? '완료' : '미완료'}</Text>
+            <Button
+              title="삭제"
+              onPress={() => deleteTodo({ _id: todo._id })}
+            />
+            <Button
+              title="완료"
+              onPress={() => completeTodo(todo._id, !todo.isCompleted)}
+            />
+          </View>
         );
       })}
     </View>
   );
 };
 
-export default UserInfoScreen;
+export default MainScreen;

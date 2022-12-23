@@ -12,7 +12,7 @@ const UpdateNicknameScreen = ({ navigation }: any) => {
     });
     if (success) {
       navigation.reset({
-        routes: [{ name: 'UserInfoScreen' }],
+        routes: [{ name: 'MainScreen' }],
       });
     }
   };

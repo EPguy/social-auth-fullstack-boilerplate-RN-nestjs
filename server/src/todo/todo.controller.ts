@@ -28,6 +28,7 @@ export class TodoController {
     @Req() req: IGetUserAuthInfoRequest,
     @Query() todoPaginationDto: TodoGetRequestDto,
   ): Promise<TodoListResponseDto> {
+    console.log(todoPaginationDto);
     return this.todoService.getTodoList(
       todoPaginationDto,
       req.user._id.toString(),

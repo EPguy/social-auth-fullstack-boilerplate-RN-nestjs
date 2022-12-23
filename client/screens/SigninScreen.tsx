@@ -55,7 +55,7 @@ const SigninScreen = ({ navigation }: any) => {
     const user = await getUserInfo().unwrap();
     if (user.nickname) {
       navigation.reset({
-        routes: [{ name: 'UserInfoScreen' }],
+        routes: [{ name: 'MainScreen' }],
       });
     } else {
       navigation.navigate('UpdateNicknameScreen');

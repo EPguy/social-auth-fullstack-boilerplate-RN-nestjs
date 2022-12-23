@@ -84,7 +84,6 @@ export class TodoService {
     todoPagination: TodoGetRequestDto,
     userId: string,
   ): Promise<Todo[]> {
-    console.log(userId);
     return this.todoModel
       .find(
         todoPagination.cursor

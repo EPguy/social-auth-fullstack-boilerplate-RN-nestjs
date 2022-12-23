@@ -3,7 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 
 import SigninScreen from '../screens/SigninScreen';
 import SignupScreen from '../screens/SignupScreen';
-import UserInfoScreen from '../screens/UserInfoScreen';
+import MainScreen from '../screens/MainScreen';
 import UpdateNicknameScreen from '../screens/UpdateNicknameScreen';
 import { useEffect, useState } from 'react';
 import { useAppSelector } from '../store/config';
@@ -36,7 +36,7 @@ export default function Navigation() {
     <>
       {!loading && (
         <Stack.Navigator
-          initialRouteName={isLogged ? 'UserInfoScreen' : 'SigninScreen'}
+          initialRouteName={isLogged ? 'MainScreen' : 'SigninScreen'}
           screenOptions={{ headerShown: false }}
         >
           <Stack.Screen name="SigninScreen" component={SigninScreen} />
@@ -45,7 +45,7 @@ export default function Navigation() {
             name="UpdateNicknameScreen"
             component={UpdateNicknameScreen}
           />
-          <Stack.Screen name="UserInfoScreen" component={UserInfoScreen} />
+          <Stack.Screen name="MainScreen" component={MainScreen} />
         </Stack.Navigator>
       )}
     </>

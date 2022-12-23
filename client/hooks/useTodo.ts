@@ -7,7 +7,6 @@ import {
 import { useState } from 'react';
 import { TodoInsertRequest } from '../models/todo/TodoInsertRequest';
 import { TodoDeleteRequest } from '../models/todo/TodoDeleteRequest';
-import { TodoUpdateRequest } from '../models/todo/TodoUpdateRequest';
 
 export default function useTodo() {
   const [endCursor, setEndCursor] = useState<string | null>(null);
@@ -31,9 +30,12 @@ export default function useTodo() {
     deleteTodoMutation(todoDeleteRequest);
   };
 
-  const updateTodo = (todoUpdateRequest: TodoUpdateRequest) => {
-    updateTodoMutation(todoUpdateRequest);
+  const completeTodo = (_id: string, isCompleted: boolean) => {
+    updateTodoMutation({
+      _id,
+      isCompleted: isCompleted,
+    });
   };
 
-  return { data, getTodoList, insertTodo, deleteTodo, updateTodo };
+  return { data, getTodoList, insertTodo, deleteTodo, completeTodo };
 }
