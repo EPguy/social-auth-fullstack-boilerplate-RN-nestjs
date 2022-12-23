@@ -1,4 +1,4 @@
-import { Button, Text, TextInput, View } from 'react-native';
+import { Button, FlatList, Text, TextInput, View } from 'react-native';
 import * as kakao from '@react-native-seoul/kakao-login';
 import React, { useEffect, useState } from 'react';
 import useUser from '../hooks/useUser';
@@ -6,13 +6,15 @@ import useAuth from '../hooks/useAuth';
 import { useAppSelector } from '../store/config';
 import { AuthTypeEnum } from '../enum/AuthTypeEnum';
 import useTodo from '../hooks/useTodo';
+import { Todo } from '../models/todo/Todo';
+import TodoItem from '../components/todo/TodoItem';
 
 const MainScreen = ({ navigation }: any) => {
   const [title, setTitle] = useState('');
   const { loginType } = useAppSelector((state) => state.auth);
   const { logout } = useAuth();
   const { userInfo, getUserInfo } = useUser();
-  const { data, getTodoList, insertTodo, deleteTodo, completeTodo } = useTodo();
+  const { data, getTodoList, insertTodo } = useTodo();
 
   useEffect(() => {
     getTodoList(null);
@@ -42,22 +44,13 @@ const MainScreen = ({ navigation }: any) => {
       <Button title="투두 저장" onPress={() => insertTodo({ title })} />
       <Button title="유저 정보 가져오기" onPress={() => getUserInfo()} />
       <Button title="로그아웃" onPress={() => doLogout()} />
-      {data?.todos.map((todo, index) => {
-        return (
-          <View key={index}>
-            <Text>{todo.title}</Text>
-            <Text>{todo.isCompleted ? '완료' : '미완료'}</Text>
-            <Button
-              title="삭제"
-              onPress={() => deleteTodo({ _id: todo._id })}
-            />
-            <Button
-              title="완료"
-              onPress={() => completeTodo(todo._id, !todo.isCompleted)}
-            />
-          </View>
-        );
-      })}
+      <FlatList<Todo>
+        data={data?.todos}
+        renderItem={({ item }) => <TodoItem todo={item} />}
+        keyExtractor={(item) => item._id}
+        onEndReached={() => {}}
+        onEndReachedThreshold={0.2}
+      />
     </View>
   );
 };

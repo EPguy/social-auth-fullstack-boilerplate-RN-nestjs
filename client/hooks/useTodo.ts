@@ -12,7 +12,7 @@ import Toast from 'react-native-toast-message';
 export default function useTodo() {
   const [endCursor, setEndCursor] = useState<string | null>(null);
   const { data, refetch: refetchTodoList } = useGetTodoListQuery({
-    numTodos: 5,
+    numTodos: 50,
     cursor: endCursor,
   });
   const [insertTodoMutation] = useInsertTodoMutation();

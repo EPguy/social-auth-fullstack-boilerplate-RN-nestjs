@@ -61,6 +61,7 @@ server 폴더로 경로 이동 합니다.\
 [네이버 로그인 API 설정](https://github.com/react-native-seoul/react-native-naver-login#installation)
 
 ## 로드맵
+- [ ] 투두리스트 무한 스크롤 구현
 - [x] Android 작동 테스트
 - [ ] IOS 작동 테스트
 - [ ] 화면 디자인
