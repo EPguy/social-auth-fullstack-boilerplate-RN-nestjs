@@ -23,17 +23,25 @@
 | Cursor-based Pagination | 투두리스트 무한 스크롤을 구현하기 위해 커서 기반 페이지네이션 방법을 사용하였습니다.                                                                                                                                                                                                     |
 
 ## 로그인 프로세스
+### 소셜 로그인 & 회원가입
+<img src="https://user-images.githubusercontent.com/36794920/209276295-8ee91382-563d-4c34-826c-6470e1e6e142.png"/>
+
+### 일반 로그인 & 회원가입
+<img src="https://user-images.githubusercontent.com/36794920/209276494-f99f5bdf-5e40-48fd-9632-ef3a1d4bff5c.png"/>
 
 ## DB 구조
+<img src="https://user-images.githubusercontent.com/36794920/209276600-edcb8269-6308-4afb-8605-379473ac0510.png"/>
 
 ## API KEY 설정
-소셜로그인에 대한 API KEY 설정은 세팅 되어있지만\
+소셜 로그인 API KEY는 이미 프로젝트에 설정되어있지만\
 여러분들의 API KEY로 변경하고 싶다면 아래 레포지토리에 있는 설명을 참고해주세요.  
 참고로 네이버 로그인 API KEY에 대한 설정은 `/client/Properties.js`에서 관리하고 있습니다.\
 [카카오 로그인 API 설정](https://github.com/react-native-seoul/react-native-kakao-login#post-installation)<br/>
 [네이버 로그인 API 설정](https://github.com/react-native-seoul/react-native-naver-login#installation)
 
 ## 로드맵
+- [x] Android 작동 테스트
+- [ ] IOS 작동 테스트
 - [ ] 화면 디자인
 - [ ] `Tistory`에 프로젝트에 대한 아티클 작성
 - [ ] API Swagger 사용하여 API 문서화
