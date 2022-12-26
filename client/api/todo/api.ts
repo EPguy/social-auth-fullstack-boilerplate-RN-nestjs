@@ -18,11 +18,16 @@ export const todoApi = createApi({
           url: 'todo',
           method: 'GET',
           params: data.cursor
-            ? data
+            ? {
+                numTodos: 5,
+                cursor: data.cursor,
+              }
             : {
-                numTodos: data.numTodos,
+                numTodos: 5,
               },
         };
+      },
+      merge: (currentCache, result) => {
       },
       providesTags: (result) =>
         result
@@ -78,7 +83,7 @@ export const todoApi = createApi({
 });
 
 export const {
-  useGetTodoListQuery,
+  useLazyGetTodoListQuery,
   useInsertTodoMutation,
   useDeleteTodoMutation,
   useUpdateTodoMutation,

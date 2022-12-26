@@ -33,7 +33,7 @@ export default function useAuth() {
         return false;
       }
     },
-    [dispatch, localSignUpMutation],
+    [],
   );
 
   const localSignIn = useCallback(
@@ -50,7 +50,7 @@ export default function useAuth() {
         return false;
       }
     },
-    [dispatch, localSignInMutation],
+    [],
   );
 
   const socialSignIn = useCallback(
@@ -65,7 +65,7 @@ export default function useAuth() {
       }
       return false;
     },
-    [dispatch, socialSignInMutation],
+    [],
   );
 
   const logout = useCallback(async () => {

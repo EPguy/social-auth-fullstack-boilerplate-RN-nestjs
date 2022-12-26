@@ -21,7 +21,7 @@ export default function useUser() {
         return false;
       }
     },
-    [updateNicknameMutation],
+    [],
   );
 
   const validateInput = (params: { nickname: string }) => {
