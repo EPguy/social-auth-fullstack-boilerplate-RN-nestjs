@@ -7,7 +7,8 @@
 ![MIT License][license-shield]
 
 ## 소셜로그인 + 일반로그인 React-Native, Nestjs Boilerplate
-소셜로그인과 일반로그인 기능이 구현되어있는 보일러플레이트입니다.
+소셜로그인과 일반로그인 기능이 구현되어있는\
+React-Native, Nestjs 풀스택 보일러플레이트입니다.
 
 ## 주요 기능
 
