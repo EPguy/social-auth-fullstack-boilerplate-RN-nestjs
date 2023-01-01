@@ -1,7 +1,8 @@
-import { Button, TextInput, View } from 'react-native';
+import { Button, TextInput } from 'react-native';
 import React, { useState } from 'react';
 import useAuth from '../hooks/useAuth';
 import Toast from 'react-native-toast-message';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const SignupScreen = ({ navigation }: any) => {
   const [id, setId] = useState('');
@@ -21,7 +22,7 @@ const SignupScreen = ({ navigation }: any) => {
     }
   };
   return (
-    <View>
+    <SafeAreaView>
       <TextInput
         onChangeText={(text) => setId(text)}
         value={id}
@@ -34,7 +35,7 @@ const SignupScreen = ({ navigation }: any) => {
         placeholder="비밀번호를 입력해주세요."
       />
       <Button title="회원가입" onPress={() => signUp()} />
-    </View>
+    </SafeAreaView>
   );
 };
 

@@ -4,16 +4,19 @@ import store from './store/config';
 import Navigation from './navigation';
 import Toast from 'react-native-toast-message';
 import { NavigationContainer } from '@react-navigation/native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 const App = () => {
   const toastConfig = {};
   return (
-    <Provider store={store}>
-      <NavigationContainer>
-        <Navigation />
-      </NavigationContainer>
-      <Toast config={toastConfig} />
-    </Provider>
+    <SafeAreaProvider>
+      <Provider store={store}>
+        <NavigationContainer>
+          <Navigation />
+        </NavigationContainer>
+        <Toast config={toastConfig} />
+      </Provider>
+    </SafeAreaProvider>
   );
 };
 

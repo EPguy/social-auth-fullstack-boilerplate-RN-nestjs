@@ -1,10 +1,11 @@
-import { Button, Text, View } from 'react-native';
+import { Button, Text } from 'react-native';
 import * as kakao from '@react-native-seoul/kakao-login';
 import React from 'react';
 import useUser from '../hooks/useUser';
 import useAuth from '../hooks/useAuth';
 import { useAppSelector } from '../store/config';
 import { AuthTypeEnum } from '../enum/AuthTypeEnum';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const MainScreen = ({ navigation }: any) => {
   const { loginType } = useAppSelector((state) => state.auth);
@@ -25,11 +26,11 @@ const MainScreen = ({ navigation }: any) => {
   };
 
   return (
-    <View style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1 }}>
       <Text>{userInfo?.nickname}님 안녕하세요.</Text>
       <Button title="유저 정보 가져오기" onPress={() => getUserInfo()} />
       <Button title="로그아웃" onPress={() => doLogout()} />
-    </View>
+    </SafeAreaView>
   );
 };
 
