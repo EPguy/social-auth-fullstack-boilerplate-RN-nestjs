@@ -42,7 +42,9 @@ client 폴더로 경로 이동 합니다.\
 Android는 아래 명령어로 실행합니다.\
 `npm run android`
 
-IOS는 아래 명령어로 실행합니다.\
+IOS는 아래 명령어로 실행합니다.(작업중)\
+`bundle install`\
+`npx pod-install`\
 `npm run ios`
 
 ### Server
