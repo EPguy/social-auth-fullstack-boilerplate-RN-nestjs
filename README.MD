@@ -33,33 +33,25 @@ React-Native, Nestjs 풀스택 보일러플레이트입니다.
 
 ## 실행방법
 ### Android
-client 폴더로 경로 이동 합니다.\
-`cd client`
-
-아래 명령어로 패키지를 설치해주세요.\
-`npm install`
-
-아래 명령어로 실행합니다.\
-`npm run android`
+```
+cd client
+npm install
+npm run android
+```
 
 ### IOS
-client 폴더로 경로 이동 합니다.\
-`cd client`
-
-아래 명령어로 패키지를 설치해주세요.\
-`npm install`
-
-아래 명령어로 실행합니다.\
-`bundle install`\
-`npx pod-install`\
-`npm run ios`
-
+```
+cd client
+npm install
+bundle install
+npx pod-install
+npm run ios
+```
 ### Server
-server 폴더로 경로 이동 합니다.\
-`cd server`
-
-아래 명령어로 서버를 실행합니다.\
-`npm run start:dev`
+```
+cd server
+npm run start:dev
+```
 
 ## API KEY 설정
 소셜 로그인 API KEY는 이미 프로젝트에 설정되어있지만\
