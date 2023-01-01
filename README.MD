@@ -32,17 +32,24 @@ React-Native, Nestjs 풀스택 보일러플레이트입니다.
 <img src="https://user-images.githubusercontent.com/36794920/209276600-edcb8269-6308-4afb-8605-379473ac0510.png"/>
 
 ## 실행방법
-### Client
+### Android
 client 폴더로 경로 이동 합니다.\
 `cd client`
 
 아래 명령어로 패키지를 설치해주세요.\
 `npm install`
 
-Android는 아래 명령어로 실행합니다.\
+아래 명령어로 실행합니다.\
 `npm run android`
 
-IOS는 아래 명령어로 실행합니다.(작업중)\
+### IOS
+client 폴더로 경로 이동 합니다.\
+`cd client`
+
+아래 명령어로 패키지를 설치해주세요.\
+`npm install`
+
+아래 명령어로 실행합니다.\
 `bundle install`\
 `npx pod-install`\
 `npm run ios`
