@@ -85,6 +85,7 @@ const SigninScreen = ({ navigation }: any) => {
         <CustomTextInput
           onChangeText={(text) => setPassword(text)}
           value={password}
+          isPassword={true}
           placeholder="비밀번호를 입력해주세요."
           textLabel="비밀번호"
         />

@@ -6,6 +6,7 @@ interface TextInputProps {
   onChangeText: (text: string) => void;
   value: string;
   placeholder: string;
+  isPassword?: boolean;
   style?: {};
 }
 
@@ -18,6 +19,7 @@ export function CustomTextInput(props: TextInputProps) {
         placeholderTextColor="#D3D3D3"
         onChangeText={(text) => props.onChangeText(text)}
         value={props.value}
+        secureTextEntry={props.isPassword}
         placeholder={props.placeholder}
       />
     </View>
