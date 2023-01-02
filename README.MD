@@ -34,10 +34,6 @@ Android 및 iOS에서 구동 가능합니다.
 ## DB 구조
 <img src="https://user-images.githubusercontent.com/36794920/209276600-edcb8269-6308-4afb-8605-379473ac0510.png"/>
 
-## 화면 디자인
-![image](https://user-images.githubusercontent.com/36794920/210214481-cf92f935-90c8-4aed-b632-389c48af89e2.png)
-![image](https://user-images.githubusercontent.com/36794920/210214498-9e33e270-0089-4fdf-b210-0b5cb30e607a.png)
-
 ## 실행방법
 `/client/Properties.js` 파일 에서
 API_URL 및 AUTH_COOKIE_DOMAIN를 본인의 서버 IP로 수정하세요.
