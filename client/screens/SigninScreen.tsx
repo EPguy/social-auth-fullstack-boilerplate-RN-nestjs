@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View, KeyboardAvoidingView } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { CustomText } from '../components/CustomText/CustomText';
 import { CustomButton } from '../components/CustomButton/CustomButton';
 import { CustomTextInput } from '../components/CustomTextInput/CustomTextInput';
