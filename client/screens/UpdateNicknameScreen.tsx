@@ -1,4 +1,4 @@
-import { Button, TextInput, View } from 'react-native';
+import { Button, TextInput } from 'react-native';
 import React, { useState } from 'react';
 import useUser from '../hooks/useUser';
 import { SafeAreaView } from 'react-native-safe-area-context';

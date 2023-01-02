@@ -14,6 +14,7 @@
 		39B0058C4678857BCE71DC4E /* libPods-front-frontTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABC5F515463A2F1BEE78A4E5 /* libPods-front-frontTests.a */; };
 		6A49A7152961A131008C1A30 /* SwiftBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A49A7142961A131008C1A30 /* SwiftBridge.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		0DE135D4994B4579AE2746F6 /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6D0C7CC321134690880D23AA /* NotoSansKR-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		ABC5F515463A2F1BEE78A4E5 /* libPods-front-frontTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-front-frontTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C90885AB09F369232F65B167 /* Pods-front.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-front.debug.xcconfig"; path = "Target Support Files/Pods-front/Pods-front.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		6D0C7CC321134690880D23AA /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; name = "NotoSansKR-Regular.otf"; path = "../assets/fonts/NotoSansKR-Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				A7E86E5468DA47B493A773A0 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -152,6 +155,15 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		A7E86E5468DA47B493A773A0 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				6D0C7CC321134690880D23AA /* NotoSansKR-Regular.otf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -249,6 +261,7 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				0DE135D4994B4579AE2746F6 /* NotoSansKR-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

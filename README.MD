@@ -36,6 +36,7 @@ React-Native, Nestjs 풀스택 보일러플레이트입니다.
 ```
 cd client
 npm install
+npx react-native-asset
 npm run android
 ```
 
@@ -45,6 +46,7 @@ cd client
 npm install
 bundle install
 npx pod-install
+npx react-native-asset
 npm run ios
 ```
 ### Server

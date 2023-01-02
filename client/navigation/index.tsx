@@ -1,6 +1,5 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
-
 import SigninScreen from '../screens/SigninScreen';
 import SignupScreen from '../screens/SignupScreen';
 import MainScreen from '../screens/MainScreen';
@@ -37,15 +36,35 @@ export default function Navigation() {
       {!loading && (
         <Stack.Navigator
           initialRouteName={isLogged ? 'MainScreen' : 'SigninScreen'}
-          screenOptions={{ headerShown: false }}
+          screenOptions={{
+            headerShadowVisible: false,
+            headerTitleAlign: 'center',
+            headerTitleStyle: {
+              fontFamily: 'NotoSansKR-Regular',
+              fontSize: 15,
+            },
+          }}
         >
-          <Stack.Screen name="SigninScreen" component={SigninScreen} />
-          <Stack.Screen name="SignupScreen" component={SignupScreen} />
+          <Stack.Screen
+            name="SigninScreen"
+            options={{ headerShown: false }}
+            component={SigninScreen}
+          />
+          <Stack.Screen
+            name="SignupScreen"
+            component={SignupScreen}
+            options={{ title: '회원가입' }}
+          />
           <Stack.Screen
             name="UpdateNicknameScreen"
             component={UpdateNicknameScreen}
+            options={{ title: '닉네임 설정' }}
           />
-          <Stack.Screen name="MainScreen" component={MainScreen} />
+          <Stack.Screen
+            name="MainScreen"
+            options={{ headerShown: false }}
+            component={MainScreen}
+          />
         </Stack.Navigator>
       )}
     </>
