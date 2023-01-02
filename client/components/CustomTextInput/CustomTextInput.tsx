@@ -26,9 +26,12 @@ export function CustomTextInput(props: TextInputProps) {
 
 const styles = StyleSheet.create({
   inputLabel: {
+    marginBottom: 5,
     fontSize: 13,
   },
   input: {
+    paddingLeft: 3,
+    paddingBottom: 5,
     fontSize: 14,
     borderBottomColor: '#CCCCCC',
     borderBottomWidth: 1,
