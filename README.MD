@@ -56,15 +56,14 @@ npm run start:dev
 ```
 
 ## API KEY 설정
-소셜 로그인 API KEY는 이미 프로젝트에 설정되어있지만\
-여러분들의 API KEY로 변경하고 싶다면 아래 레포지토리에 있는 설명을 참고해주세요.  
+본인의 소셜로그인 API KEY로 변경하고 싶다면 아래 레포지토리에 있는 설명을 참고해주세요.  
 참고로 네이버 로그인 API KEY에 대한 설정은 `/client/Properties.js`에서 관리하고 있습니다.\
 [카카오 로그인 API 설정](https://github.com/react-native-seoul/react-native-kakao-login#post-installation)<br/>
 [네이버 로그인 API 설정](https://github.com/react-native-seoul/react-native-naver-login#installation)
 
 ## 로드맵
 - [x] Android 작동 테스트
-- [x] IOS 작동 테스트
+- [x] iOS 작동 테스트
 - [ ] 화면 디자인
 - [ ] `Tistory`에 클라이언트에 대한 아티클 작성
 - [ ] `Tistory`에 서버에 대한 아티클 작성
