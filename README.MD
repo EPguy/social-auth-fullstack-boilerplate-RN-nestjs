@@ -9,6 +9,9 @@
 ## 소셜로그인 + 일반로그인 React-Native, Nestjs Boilerplate
 소셜로그인과 일반로그인 기능이 구현되어있는\
 React-Native, Nestjs 풀스택 보일러플레이트입니다.
+Android 및 iOS에서 구동 가능합니다.
+
+![Demo GIF](https://user-images.githubusercontent.com/36794920/210214243-6923d733-fd9b-46a5-9444-3240e78387cb.gif)
 
 ## 주요 기능
 
@@ -31,7 +34,13 @@ React-Native, Nestjs 풀스택 보일러플레이트입니다.
 ## DB 구조
 <img src="https://user-images.githubusercontent.com/36794920/209276600-edcb8269-6308-4afb-8605-379473ac0510.png"/>
 
+## 화면 디자인
+![image](https://user-images.githubusercontent.com/36794920/210214481-cf92f935-90c8-4aed-b632-389c48af89e2.png)
+![image](https://user-images.githubusercontent.com/36794920/210214498-9e33e270-0089-4fdf-b210-0b5cb30e607a.png)
+
 ## 실행방법
+`/client/Properties.js` 파일 에서
+API_URL 및 AUTH_COOKIE_DOMAIN를 본인의 서버 IP로 수정하세요.
 ### Android
 ```
 cd client
@@ -64,7 +73,7 @@ npm run start:dev
 ## 로드맵
 - [x] Android 작동 테스트
 - [x] iOS 작동 테스트
-- [ ] 화면 디자인
+- [x] 화면 디자인
 - [ ] `Tistory`에 클라이언트에 대한 아티클 작성
 - [ ] `Tistory`에 서버에 대한 아티클 작성
 - [ ] API Swagger 사용하여 API 문서화
