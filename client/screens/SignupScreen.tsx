@@ -51,7 +51,6 @@ const SignupScreen = ({ navigation }: any) => {
 
 const styles = StyleSheet.create({
   conatiner: {
-    paddingTop: 38,
     paddingLeft: 20,
     paddingRight: 20,
     paddingBottom: 71,
